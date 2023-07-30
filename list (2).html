@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>List app</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+ <style>
+  *{
+ padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+body{
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ background-color: whitesmoke;
+ background-image: linear-gradient(snow, silver, #ccc);
+ 
+}
+
+main{
+ display: flex;
+ justify-content: center;
+ flex-flow: column;
+ text-align: center;
+ flex-grow: 1;
+ min-height: 100vh;
+}
+
+.form-section{
+ background-color: #222;
+ background-image: linear-gradient(black, #222);
+ width: 80%;
+ min-height: 40vh;
+ color: white;
+ margin: 4rem auto;
+ padding: 1rem;
+ border-radius: 30px;
+ transition: all 0.5s;
+}
+
+input{
+ background-color: #ddd;
+ border: none;
+ border-radius: 5px;
+ margin: 1rem 0.2rem;
+ height: 30px;
+ padding: 0.1rem;
+}
+
+.input-btn{
+ display: flex;
+ flex-flow: row nowrap;
+}
+
+.submit{
+ width: 20%;
+ margin: 0.9rem 0 0;
+ height: 26px;
+ color: white;
+ background-color: #333;
+ border: none;
+ font-weight: bolder;
+ border-radius: 5px;
+ padding: 0.3rem;
+}
+
+.clear-btn button{
+ background: none;
+ color: white;
+ margin: 1.5rem auto; 
+}
+
+.list{
+ display: flex;
+ justify-content: space-between;
+}
+
+.list span{
+
+}
+
+.btns{
+ display: flex;
+ justify-content: space-between;
+ margin-right: 0;
+}
+
+.btns button{
+ width: 1.5rem;
+ margin: 0.3rem;
+}
+
+.list-item{
+ color: snow;
+ background-color: #222;
+ width: 85%;
+ display: block;
+ border-radius: 5px;
+ font-weight: bold;
+ text-align: left;
+ font-size: 1.1rem;
+}
+
+.alert{
+ color: crimson;
+ background-color: #333;
+ border-radius: 5px;
+ font-weight: bold;
+}
+ </style>
+</head>
+
+<body>
+ <main>
+  <h1>List tracking app</h1>
+  <section class="form-section">
+    <!--form-->
+    <form class="listform">
+     <div>
+      
+      <p class="alert"></p>
+      <div class="input-btn">
+      <input type="text" id="list-input" placeholder="Add item">
+       <button type="submit" class="submit">
+        Submit
+       </button>
+      </div>
+     </div>
+    </form> 
+    
+    <div class="shoplist">
+     <div class="list">
+      <p class="list-item">Laptop</p>
+       <span class="btns">
+        <button type="button" class="edit" onclick="edit(this)">
+         📝
+        </button>
+        <button type="button" class="delete" onclick="deleteItem(this)">
+         ×
+        </button>
+       </span>
+     </div>
+     <!-- <div class="clear-btn">
+     <button type="button" class="clear">
+      Clear all</button>
+     </div>-->
+    </div>
+ </section>
+ </main>
+ 
+ 
+<!-- <script>
+  //Elemnt selectors
+let alertBox = document.querySelector('.alert');
+let form = document.querySelector('.listform');
+let listItem = document.querySelector('.list-item');
+let listInput = document.getElementById('list-input');
+let listContainer = document.querySelector('.shoplist');
+
+//Buttons
+let editBtn = document.querySelectorAll('.edit');
+let trashBtn = document.querySelector('.delete');
+let clearBtn = document.querySelector('.clear')
+
+// Validation
+
+form.addEventListener('submit', (e) =>{
+ e.preventDefault();
+ console.log('Button click');
+ validate();
+})
+
+let validate = () => {
+ if(listInput.value === ''){
+  alertBox.innerHTML = 'Cannot be blank!';
+  console.log('Failure');
+ } else{
+  console.log('Success');
+  alertBox.innerHTML = 'Succesfully added';
+  alertBox.style.color = 'green';
+  acceptItem();
+ }
+};
+
+// Adding item
+
+let item = {};
+
+let acceptItem = () => {
+ item['text'] = listInput.value;
+ console.log(item);
+ 
+ addItem();
+};
+
+let addItem = () => {
+ listContainer.innerHTML +=
+ ` <div class="list">
+   <p class="list-item">${item.text}</p>
+   <span class="btns">
+   <button type="button" class="edit" onClick = "edit(this)">
+      📝
+   </button>
+   <button type="button" class="delete" onClick = "deleteItem(this)">
+    ×
+   </button>
+   </span> 
+   </div>`;
+ listInput.value = '';
+};
+
+//Deleting and editing
+
+let deleteItem = (e) => {
+ listItem.innerText = 'Done✓';
+ e.parentElement.parentElement.remove();
+};
+
+let edit = (e) => {
+ listInput.value = e.parentElement.previousElementSibling.innerHTML;
+ e.parentElement.parentElement.remove();
+};
+ </script>-->
+ <script src="list.js"></script>
+</body>
+
+</html>
